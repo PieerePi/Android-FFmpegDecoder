@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button mp3_encoder_btn;
 
-    private boolean recording = false;
+    private boolean converting = false;
 
     private Handler mHandler;
     private static final int CONVERT_DONE_FLAG = 100000;
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                 if (msg.what == CONVERT_DONE_FLAG) {
                     int wasteTimeMills = msg.getData().getInt(CONVERT_DURATION);
                     Toast.makeText(MainActivity.this, "MP3到PCM的转换已经完成，耗时" + wasteTimeMills + "毫秒", Toast.LENGTH_LONG).show();
-                    recording = false;
+                    converting = false;
                 }
             }
         };
@@ -57,8 +57,8 @@ public class MainActivity extends AppCompatActivity {
         mp3_encoder_btn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!recording) {
-                    recording = true;
+                if (!converting) {
+                    converting = true;
                     Thread convertThread = new Thread(new ConvertThread(), "ConvertThread");
                     convertThread.start();
                 } else {
