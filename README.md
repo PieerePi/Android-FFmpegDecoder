@@ -13,5 +13,6 @@
 - 修改了过时的FFmpeg API使用，avcodec_decode_audio4暂时没有修改为avcodec_send_packet和avcodec_receive_frame样式
 
 - 131.mp3文件打包在APK中，使用时拷贝到应用专属存储空间，暂时没有让jni直接读资源文件；转换后的PCM文件131.pcm在应用专属存储空间/data/data/com.phuket.tour.ffmpeg_decoder/files目录下，需要使用Device File Explorer来导出
+  - ffplay 131.pcm -f s16le -ac 2 -ar 44100
 
 - 在后台线程进行转换操作，防止ANR
