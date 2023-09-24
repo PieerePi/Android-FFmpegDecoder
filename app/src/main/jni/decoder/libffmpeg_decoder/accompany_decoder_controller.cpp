@@ -23,6 +23,9 @@ void AccompanyDecoderController::Init(const char* accompanyPath, const char* pcm
 	accompanyDecoder = new AccompanyDecoder();
 	accompanyDecoder->init(accompanyPath, accompanyPacketBufferSize);
 	pcmFile = fopen(pcmFilePath, "wb+");
+	if (!pcmFile) {
+		LOGE("Can't create pcmFile %s, error %s", pcmFilePath, strerror(errno));
+	}
 }
 
 void AccompanyDecoderController::Decode() {

@@ -7,8 +7,6 @@ include_directories(3rdparty/include)
 file(GLOB srcs decoder/jni/*.cpp decoder/libffmpeg_decoder/*.cpp common/*.h) # 把所有cpp文件和c文件都放入名称为srcs的集合中
 file(GLOB hdrs decoder/jni/*.h decoder/libffmpeg_decoder/*.h) # 把所有hpp文件和h文件都放入名称为hdrs的集合中
 
-add_compile_options(-fPIC)
-
 #add_library(${target} STATIC ${srcs} ${hdrs}) # 生成静态库（库文件的扩展名为a）
 add_library(${target} SHARED ${srcs} ${hdrs}) # 生成动态库（共享库）（库文件的扩展名为so）
 target_link_libraries(${target} log z

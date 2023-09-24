@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">Android-FFmpegDecoder</string>
+    <string name="app_name">FFmpegDecoder</string>
     <string name="mp3_encoder_btn_text">MP3 TO PCM</string>
 </resources>

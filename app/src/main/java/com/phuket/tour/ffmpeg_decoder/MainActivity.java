@@ -76,8 +76,8 @@ public class MainActivity extends AppCompatActivity {
             Mp3Decoder decoder = new Mp3Decoder();
             CopyAssets(getApplicationContext(), mp3FilePath,
                     getApplicationContext().getFilesDir().getAbsolutePath(), mp3FilePath);
-            String lmp3FilePath = getApplicationContext().getFilesDir().getAbsolutePath() + "/" + mp3FilePath;
-            String lpcmFilePath = getApplicationContext().getFilesDir().getAbsolutePath() + "/" + pcmFilePath;
+            String lmp3FilePath = getApplicationContext().getFilesDir().getAbsolutePath() + File.separator + mp3FilePath;
+            String lpcmFilePath = getApplicationContext().getExternalFilesDir(null).getAbsolutePath() + File.separator + pcmFilePath;
             int ret = decoder.init(lmp3FilePath, lpcmFilePath);
             if(ret >= 0) {
                 decoder.decode();
